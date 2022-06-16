@@ -1,0 +1,27 @@
+
+
+server:
+  port: 4000
+  error:
+    include-message: always
+    include-binding-errors: always
+spring:
+  thymeleaf:
+    cache: false
+    check-template: true
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    encoding: UTF-8
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.17.0.2:3306/apiUser?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: myPasswd123
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
