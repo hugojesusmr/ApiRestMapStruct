@@ -1,5 +1,6 @@
 package com.example.ApiRestMapStruct.controller;
 
+import com.example.ApiRestMapStruct.dto.PersonDto;
 import com.example.ApiRestMapStruct.model.Person;
 import com.example.ApiRestMapStruct.service.PersonService;
 import lombok.AllArgsConstructor;
@@ -32,16 +33,16 @@ public class PersonController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
     @PostMapping
-    private ResponseEntity<?> savePerson(@Valid @RequestBody Person person){
+    private ResponseEntity<?> savePerson(@Valid @RequestBody PersonDto personDto){
         response.clear();
-        personService.savePerson(person);
+        personService.savePerson(personDto);
         response.put("message","save person successfully");
         return  new ResponseEntity<>(response,HttpStatus.CREATED);
     }
     @PutMapping("/{id}")
-    private ResponseEntity<?> updatePerson(@PathVariable Long id, Person person){
+    private ResponseEntity<?> updatePerson(@PathVariable Long id, PersonDto personDto){
         response.clear();
-        personService.updatePerson(id, person);
+        personService.updatePerson(id, personDto);
         response.put("message", "update person successfully");
         return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
     }
